@@ -194,7 +194,7 @@ Or create a vitual host
 	Parameters: customer_id, product_id
 
 
-#Orders:
+# Orders:
 	Get all orders
 	Method: GET  					
 	Endpoint: /api/orders/:admin_id/:limitPerPage	 		
