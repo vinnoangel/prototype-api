@@ -194,7 +194,6 @@ Or create a vitual host
 	Parameters: customer_id, product_id
 
 
-	
 #Orders:
 	Get all orders
 	Method: GET  					
