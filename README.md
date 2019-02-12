@@ -13,13 +13,16 @@ Enable customers to place an order for one or more products, and provide custome
 etc.
 
 
-Getting started
-Installation
+# Getting started
+
+## Installation 
+
 Please check the official laravel installation guide for server requirements before you start. Official Documentation. These project was built on Laravel 5.5
 
 Clone the repository
 
-git clone https://github.com/vinnoangel/prototype-api.git
+	git clone https://github.com/vinnoangel/prototype-api.git
+
 Switch to the repo folder
 
 edit .env file and change the database name if you want
@@ -28,183 +31,182 @@ Then export prototype_api.sql (inside the root folder) to the your database
 
 Start the local development server
 
-php artisan serve
+	php artisan serve
+
 You can now access the server at http://localhost:8000 using POSTMAN
 
 Or create a vitual host
 
 
 
-Endpoints:
+# Endpoints:
 
-Example request body:
+## Example request body:
 
-{
-	"name": "John Stones",
-	"email": "stones@.gmail.com",
-	"phone": "053377488",
-	"password": "stonesj"
-}
-Default limitPerPage = 20;
+	{
+		"name": "John Stones",
+		"email": "stones@.gmail.com",
+		"phone": "053377488",
+		"password": "stonesj"
+	}
 
-Administrators:
-Get all administrators
-Method: GET  					
-Endpoint: /api/administrators/:limitPerPage	 		
-Parameters (optional): limitPerPage 
+	Default limitPerPage = 20;
 
-Get administrator
-Method: GET  					
-Endpoint: /api/administrator	 		
-Parameters: id
+# Administrators:
+	Get all administrators
+	Method: GET  					
+	Endpoint: /api/administrators/:limitPerPage	 		
+	Parameters (optional): limitPerPage 
 
-Create administrator
-Method: POST  					
-Endpoint: /api/administrator	 		
-Parameters: name, email phone, password
+	Get administrator
+	Method: GET  					
+	Endpoint: /api/administrator	 		
+	Parameters: id
 
-Update administrator
-Method: PUT  					
-Endpoint: /api/administrator	 		
-Parameters: id, name, email phone
+	Create administrator
+	Method: POST  					
+	Endpoint: /api/administrator	 		
+	Parameters: name, email phone, password
 
-Delete administrator
-Method: DELETE  					
-Endpoint: /api/administrator/:id	 		
-Parameters: id
+	Update administrator
+	Method: PUT  					
+	Endpoint: /api/administrator	 		
+	Parameters: id, name, email phone
 
-////////////////////////////////////
-Customers:
-Get all customers
-Method: GET  					
-Endpoint: /api/customers/:limitPerPage	 		
-Parameters (optional): limitPerPage 
-
-Get customer
-Method: GET  					
-Endpoint: /api/customer/:id	 		
-Parameters: id
-
-Create customer
-Method: POST  					
-Endpoint: /api/customer	 		
-Parameters: name, email, phone, gender, address, password
-
-Update customer
-Method: PUT  					
-Endpoint: /api/customer	 		
-Parameters: id, name, email, phone, gender, address
-
-Delete customer
-Method: DELETE  					
-Endpoint: /api/customer/:id	 		
-Parameters: id
+	Delete administrator
+	Method: DELETE  					
+	Endpoint: /api/administrator/:id	 		
+	Parameters: id
 
 
-////////////////////////////////////
-Products:
-Get all products
-Method: GET  					
-Endpoint: /api/products/:limitPerPage	 		
-Parameters (optional): limitPerPage 
+# Customers:
+	Get all customers
+	Method: GET  					
+	Endpoint: /api/customers/:limitPerPage	 		
+	Parameters (optional): limitPerPage 
 
-Get product
-Method: GET  					
-Endpoint: /api/product/:id	 		
-Parameters: id
+	Get customer
+	Method: GET  					
+	Endpoint: /api/customer/:id	 		
+	Parameters: id
 
-Create product
-Method: POST  					
-Endpoint: /api/product	 		
-Parameters: name, price, description, admin_id
-Optional parameters: gender, discount, colors, sizes
+	Create customer
+	Method: POST  					
+	Endpoint: /api/customer	 		
+	Parameters: name, email, phone, gender, address, password
 
-Update product
-Method: PUT  					
-Endpoint: /api/product	 		
-Parameters: id, name, price, description, admin_id
-Optional parameters: gender, discount, colors, sizes
+	Update customer
+	Method: PUT  					
+	Endpoint: /api/customer	 		
+	Parameters: id, name, email, phone, gender, address
 
-Delete product
-Method: DELETE  					
-Endpoint: /api/product/:id/:admin_id	 		
-Parameters: id, admin_id
+	Delete customer
+	Method: DELETE  					
+	Endpoint: /api/customer/:id	 		
+	Parameters: id
 
 
-////////////////////////////////////
-Bundles:
-Get all bundles
-Method: GET  					
-Endpoint: /api/bundles/:limitPerPage	 		
-Parameters (optional): limitPerPage 
+# Products:
+	Get all products
+	Method: GET  					
+	Endpoint: /api/products/:limitPerPage	 		
+	Parameters (optional): limitPerPage 
 
-Get bundle
-Method: GET  					
-Endpoint: /api/bundle/:id	 		
-Parameters: id
+	Get product
+	Method: GET  					
+	Endpoint: /api/product/:id	 		
+	Parameters: id
 
-Create bundle
-Method: POST  					
-Endpoint: /api/bundle	 		
-Parameters: name, price, description, admin_id
-Optional parameters: discount
+	Create product
+	Method: POST  					
+	Endpoint: /api/product	 		
+	Parameters: name, price, description, admin_id
+	Optional parameters: gender, discount, colors, sizes
 
-Update bundle
-Method: PUT  					
-Endpoint: /api/bundle	 		
-Parameters: id, name, price, description, admin_id
-Optional parameters: discount
+	Update product
+	Method: PUT  					
+	Endpoint: /api/product	 		
+	Parameters: id, name, price, description, admin_id
+	Optional parameters: gender, discount, colors, sizes
 
-Delete bundle
-Method: DELETE  					
-Endpoint: /api/bundle/:id/:admin_id	 		
-Parameters: id, admin_id
-
-
-////////////////////////////////////
-Carts:
-Get all customer product in carts
-Method: GET  					
-Endpoint: /api/carts/:customer_id	 		
-Parameters: customer_id 
-
-Create cart
-Method: POST  					
-Endpoint: /api/cart	 		
-Parameters: customer_id, product_id
-Optional parameters: quantity (will be set to 1 if empty)
-
-Update cart
-Method: PUT  					
-Endpoint: /api/cart	 		
-Parameters: customer_id, product_ids, quantities
-NB: product_ids and quantities must be an array
-example 
-{
-	"customer_id": "John Stones",
-	"product_ids": [2,4,5],
-	"quantities": [10,20,2]
-}
-
-Delete cart
-Method: DELETE  					
-Endpoint: /api/cart/:customer_id/:product_id	 		
-Parameters: customer_id, product_id
+	Delete product
+	Method: DELETE  					
+	Endpoint: /api/product/:id/:admin_id	 		
+	Parameters: id, admin_id
 
 
-////////////////////////////////////
-Orders:
-Get all orders
-Method: GET  					
-Endpoint: /api/orders/:admin_id/:limitPerPage	 		
-Parameters: admin_id, limitPerPage 
+# Bundles:
+	Get all bundles
+	Method: GET  					
+	Endpoint: /api/bundles/:limitPerPage	 		
+	Parameters (optional): limitPerPage 
 
-Get an order
-Method: GET  					
-Endpoint: /api/orders/:order_id	 		
-Parameters: order_id
+	Get bundle
+	Method: GET  					
+	Endpoint: /api/bundle/:id	 		
+	Parameters: id
 
-Create order
-Method: POST  					
-Endpoint: /api/order	 		
-Parameters: customer_id
+	Create bundle
+	Method: POST  					
+	Endpoint: /api/bundle	 		
+	Parameters: name, price, description, admin_id
+	Optional parameters: discount
+
+	Update bundle
+	Method: PUT  					
+	Endpoint: /api/bundle	 		
+	Parameters: id, name, price, description, admin_id
+	Optional parameters: discount
+
+	Delete bundle
+	Method: DELETE  					
+	Endpoint: /api/bundle/:id/:admin_id	 		
+	Parameters: id, admin_id
+
+
+# Carts:
+	Get all customer product in carts
+	Method: GET  					
+	Endpoint: /api/carts/:customer_id	 		
+	Parameters: customer_id 
+
+	Create cart
+	Method: POST  					
+	Endpoint: /api/cart	 		
+	Parameters: customer_id, product_id
+	Optional parameters: quantity (will be set to 1 if empty)
+
+	Update cart
+	Method: PUT  					
+	Endpoint: /api/cart	 		
+	Parameters: customer_id, product_ids, quantities
+	NB: product_ids and quantities must be an array
+	example 
+	{
+		"customer_id": "John Stones",
+		"product_ids": [2,4,5],
+		"quantities": [10,20,2]
+	}
+
+	Delete cart
+	Method: DELETE  					
+	Endpoint: /api/cart/:customer_id/:product_id	 		
+	Parameters: customer_id, product_id
+
+
+	
+#Orders:
+	Get all orders
+	Method: GET  					
+	Endpoint: /api/orders/:admin_id/:limitPerPage	 		
+	Parameters: admin_id, limitPerPage 
+
+	Get an order
+	Method: GET  					
+	Endpoint: /api/orders/:order_id	 		
+	Parameters: order_id
+
+	Create order
+	Method: POST  					
+	Endpoint: /api/order	 		
+	Parameters: customer_id
